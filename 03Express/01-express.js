@@ -1,9 +1,28 @@
 const express = require('express')
 const app = express()
-const port = 3005
+require('dotenv').config()
+const port = process.env.PORT || 3005
+
 //motor plantillas
+
 app.set('view engine','ejs' )
 app.set('views',__dirname+'/views')
+
+//Conexión a base de datos
+const mongoose = require('mongoose');
+//Variables que tendremos siempre:
+//Lo correcto será declararlas EN VARIABLES DE ENTORNO
+//para que nadie vea directamente nuestras credenciales
+/*const user = 'cursonode';
+const password = 'wDT3pcDGPPmRzAoo';
+const dbname = 'dbpokemon';*/
+
+const uri = `mongodb+srv://${process.env.BD_USER}:${process.env.BD_PASSWORD}@cluster0.fpooui4.mongodb.net/${process.env.BD_NAME}?retryWrites=true&w=majority`; //URL de conexión, que completaremos luego
+mongoose.connect(uri,
+  { useNewUrlParser: true, useUnifiedTopology: true }
+)
+  .then(() => console.log('Base de datos conectada'))
+  .catch(e => console.log(e))
 
 
 //ruta middel 

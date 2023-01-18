@@ -1,3 +1,8 @@
+/*PORT=4000
+BD_USER=cursonode
+BD_PASWORD=AQOhwLtwluCBcewh
+BD_NAME=dbpokemon
+*/ 
 const bodyParser = require('body-parser')
 const express = require('express')
 const app = express()

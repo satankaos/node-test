@@ -12,7 +12,7 @@
 <% } %>
 <% if (!error) { %>
     <form id="editar" data-id="<%= entrenador.id %>">
-        <input type="text" value="<%= entrenador.Nombre %>" class="form-control my-2" name="nombre"
+        <input type="text" value="<%= entrenador.Nombre %>" class="form-control my-2" name="Nombre"
             id="nombreInput">
         <input type="text" value="<%= entrenador. Bio %>" class="form-control my-2" name="Bio"
             id="tipoInput">
@@ -56,12 +56,13 @@
     const formEditar = document.querySelector('#editar');
             formEditar.addEventListener('submit', async (e) => {
                 e.preventDefault()
-                const Nombre = formEditar.elements['Nombre'].value
+                const Nombre = formEditar.elements['nombre'].value
                 const Bio = formEditar.elements['Bio'].value
-                const ciudad = formEditar.elements['ciudad'].value
+                const ciudad = formEditar.elements['Ciudad'].value
                 const Lista_pokemon = formEditar.elements['Lista_Pokemon'].value
                 const id = formEditar.dataset.id
-                const data = await fetch(`/entrenador/${id}`, {
+
+                const data = await fetch(`/entrenador/${id1}`, {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json'

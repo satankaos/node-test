@@ -32,10 +32,10 @@ app.use(express.static(__dirname + '/public'))
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views')
 app.use('/', require('./router/rutas'))
-//app.use('/pokemon', require('./router/pokemon'))
+app.use('/pokemon', require('./router/pokemon'))
 //Entrenador
 //SII DESCOMENTO ESTO NO ME VA 
-app.use('/entrenador',require('./router/entrenador'))
+//app.use('/entrenador',require('./router/entrenador'))
 
 
 //Listen port
